@@ -1002,5 +1002,22 @@
         });
       })();
     </script>
-  </body>
+  <script>
+/* First-click sponsored popunder: the visitor's first click opens the sponsor
+   link in a new tab; the site itself keeps working normally. Once per session. */
+(function () {
+  var LINK = "https://www.profitableratecpmnetwork.com/crdckuxrx?key=8e640f6c29b8e65f3b90970d2be285f5";
+  try { if (sessionStorage.getItem("pop1done")) return; } catch (e) {}
+  function handler(ev) {
+    var done = true;
+    try { sessionStorage.setItem("pop1done", "1"); } catch (e) {}
+    document.removeEventListener("click", handler, true);
+    /* Clicks on the labelled ad slots already open the sponsor link themselves. */
+    if (ev.target && ev.target.closest && ev.target.closest('a[href*="profitableratecpmnetwork"]')) return;
+    window.open(LINK, "_blank");
+  }
+  document.addEventListener("click", handler, true);
+})();
+</script>
+</body>
 </html>
